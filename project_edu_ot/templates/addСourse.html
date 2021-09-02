@@ -1,0 +1,71 @@
+{% extends 'course_base.html' %}
+
+themes = [
+    {'theme': 'Охрана труда',
+     'edu_materials': 't1.pdf',
+     'exzersis': 'exz_t1.test',
+     'exzamen': 'exzam_t1.test',
+     },
+    {'theme':'Первая помощь при несчастных случаях',
+     'edu_materials': 'p1.pdf',
+     'exzersis': 'exz_p1.test',
+     'exzamen': 'exzam_p1.test',
+     },
+    {'theme':'Вводный инструктаж по охране труда',
+     'edu_materials': 'v1.pdf',
+     'exzersis': 'exz_v1.test',
+     'exzamen': 'exzam_v1.test',
+     },
+    {'theme':'Инструктаж по электробезопасности для неэлектрического персонала',
+     'edu_materials': 'i1.pdf',
+     'exzersis': 'exz_i1.test',
+     'exzamen': 'exzam_i1.test',
+     }
+]
+
+{% block title %}
+Добавить курс
+{% endblock %}
+
+{% block company%}
+Ваше ОО
+{% endblock %}
+{% block username %}
+ Иванов
+{% endblock %}
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">{{msg}}</div>
+{% endfor %}
+{% block content%}
+<form action="/addCourse" method="post" class="needs-validation" novalidate>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <p><input type="text" class="form-control"name="theme" value=""
+                      placeholder="Название темы курса" required />
+            <p><input type="text" class="form-control"name="edu_materials" value=""
+                      placeholder="ссылка на  файл учебных материалов" required />
+            <p><input type="text" class="form-control"name="exzersis" value=""
+                      placeholder="ссылка на  файл практических тестов" /></p>
+            <p><input type="text" class="form-control" name="exzamen"
+                      placeholder="ссылка на файл экзаменационных материалов" value="" required>
+        </div>
+        <hr class="my-4">
+<!--        <div class="col-sm-6">-->
+<!--            <label>  Члены аттестационной комиссии по курсу</label>-->
+<!--            <p><input type="text" class="form-control" name="nameboss" placeholder="Председатель" value="" required>-->
+<!--            <p><input type="text" class="form-control" name="name_1" placeholder="1 член" value="" required>-->
+<!--            <p><input class="form-control" type="text" name="name_2" value="" placeholder="2 член" required />-->
+<!--        </div>-->
+    </div>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <input class="w-100 btn btn-primary btn-lg" type="submit" value="Добавить" />
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock %}

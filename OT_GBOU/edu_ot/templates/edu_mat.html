@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ОТ_Челно-Вершины
+{% endblock %}
+{% block company%}
+ГБОУ СОШ (ОЦ) с.Челно-Вершины.
+Ваши курсы
+    <div class="pb-3">
+        {{theme}}
+    </div>
+{% endblock %}
+
+{% block hidden_timer %}
+hidden
+{% endblock %}>
+
+{% block username %}
+ {{name}}, {{firstname}}, {{lastname}}
+{% endblock %}
+
+{% block content %}
+    {% block body %}
+    <div class="col-md-8 themed-grid-col">
+    {{edu_materials}}
+    </div>
+    {% endblock %}
+    <!--TODO в окне контейнера выводится материал лекции в формате ПДФ  -->
+    {% block login %}
+    <a href="{{link_download}}">скачать</a>
+    <a href="{{link_print}}">распечатать</a>
+    <a href="{{link_exsersis}}">{{exsersis}}</a>
+    <a href="{{link_exzamen}}">{{exzamen}}</a>
+    {% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+      ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock  %}

@@ -1,0 +1,48 @@
+{% extends 'course_base.html' %}
+
+{% block title %}
+ОТ_Челно-Вершины
+{% endblock %}
+{% block company%}
+ГБОУ СОШ (ОЦ) с.Челно-Вершины
+Ваши курсы
+{% endblock %}
+
+{% block username %}
+ {{name}}, {{firstname}}, {{lastname}}
+{% endblock %}
+
+{% block hidden_timer %}
+hidden
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8 themed-grid-col">
+                <div class="pb-3">
+                {{theme}}
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="/edu_mat">учебный материал</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exsersis}}">{{exsersis}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exzamen}}">{{exzamen}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 themed-grid-col">
+                <p>Статус - {{status}} </p>
+                <p> Количество попыток {{count_prob}} из 3</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+{% block footer-%}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock -%}

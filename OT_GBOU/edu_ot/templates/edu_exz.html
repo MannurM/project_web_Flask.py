@@ -1,0 +1,64 @@
+{% extends 'course_base.html' %}
+
+{% block title %}
+ОТ_Челно-Вершины
+{% endblock %}
+{% block company%}
+ГБОУ СОШ (ОЦ) с.Челно-Вершины.
+Ваши курсы
+    <div class="pb-3">
+        {{theme}}
+    </div>
+{% endblock %}
+
+{% block username %}
+ {{name}}, {{firstname}}, {{lastname}}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exsersis}}">{{exsersis}}</a>
+        <!--TODO в окне контейнера выводится тест по вопросно -->
+        <form action="/tests" method="post" class="needs-validation" novalidate>
+        <!--TODO забабахать цикл вывода вопросов-->
+            <p><label>{{t}} </label>
+                <!--TODO может ли name изменяться динамически {{t_o1}}, "{{t}}_o2", f"{{t}}_01"
+                         нужно получить каждое непустой ответ на вопрос-->
+                <!--TODO t - вопрос, t_01 -  передаваемый вариант ответ вариант ответа, v1 - вариант ответа -->
+                <input type="checkbox" class="checkbox" name={{t_o1}} value="" /><label>{{v1}}</label>
+                <input type="checkbox" class="checkbox" name="{{t}}_o2" value="" /><label>{{v2}}</label>
+                <input type="checkbox" class="checkbox" name="{{t}}_o3" value="" /><label>{{v3}}</label>
+                <input type="checkbox" class="checkbox" name="{{t}}_o4" value="" /><label>{{v4}}</label>
+            </p>
+            <p><input type="submit" class="w-100 btn btn-primary btn-lg" value="Отправить на проверку!" />
+        </form>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            {{rezult}}-{{procent}}% решено, попытка - {{count_prob}} из 3
+            <!--TODO не забыть считать  и обновлять количество попыток в БД-->
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <a href="{{link_exsersis}}">  ЕЩЕ раз(нажмите на ссылку!)</a>
+            <!-- TODO Запустить другие вопросы из БД tests           -->
+        </div>
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <a href="{{link_edu_materials}}"> Перейти на - {{edu_materials}}</a>
+        </div>
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <a href="{{link_exsersis}}"> Перейти на - {{exsersis}}</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <a href="{{user_sert}}"> Получить удостоверение!</a>
+        </div>
+{% endblock %}
+
+{% block footer-%}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock -%}

@@ -1,0 +1,42 @@
+{% extends 'course_base.html' %}
+
+
+
+{% block title %}
+Ваши курсы
+{% endblock %}
+{% block company%}
+Ваши курсы
+{% endblock %}
+{% block username %}
+ Иванов
+{% endblock %}
+{% block content %}
+    {% for v in theme_list %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8 themed-grid-col">
+                <div class="pb-3">
+                {{v.theme}}
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_edu_materials}}">{{v.edu_materials}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exsersis}}">{{v.exsersis}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exzamen}}">{{v.exzamen}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 themed-grid-col">status</div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+
+{% block footer-%}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock -%}

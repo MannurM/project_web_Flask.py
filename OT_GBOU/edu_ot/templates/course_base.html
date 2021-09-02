@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+    <div class="nav nav-pills"{% block hidden_timer %}{% endblock %}>
+        {{timer}}
+    <!--TODO найти и вставить обнуляющийся таймер, который блокирует действие по завершению-->
+    </div>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">{% block company%}{% endblock %}</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="" class=btn btn-primary>{% block username %}{% endblock %}</a></li>
+            </ul>
+            <div class="text-end">
+                <a href="/exit" class="btn btn-primary">
+                    ВЫЙТИ
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <div class="container">
+    {% block content %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8 themed-grid-col">
+                <div class="pb-3">
+                <a href="{{url_for('/theme')}}">{{theme}}</a>
+<!--                    # TODO ссылки вставить правильные. статья должна-->
+<!--                    # TODO вызываться в новом окне.-->
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_edu_materials}}">{{edu_materials}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exsersis}}">{{exsersis}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href="{{link_exzamen}}">{{exzamen}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 themed-grid-col">{{status}}</div>
+        </div>
+    </div>
+    {% endblock %}
+    </div>
+<!-- TODO вставить блок выдачи удостоверений и записи в итоговый протокол, выдача выписки из итогового протокола -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="text-center text-muted">{% block footer %}{% endblock %} &copy; 2021 Zaydullin Mannur</p>
+        </footer>
+    </div>
+</body>
+</html>
